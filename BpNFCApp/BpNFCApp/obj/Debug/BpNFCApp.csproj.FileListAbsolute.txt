@@ -1,0 +1,70 @@
+C:\Users\Christian\Desktop\Work\NFCapp\BpNFCApp\BpNFCApp\bin\Debug\BpNFCApp.exe.config
+C:\Users\Christian\Desktop\Work\NFCapp\BpNFCApp\BpNFCApp\bin\Debug\BpNFCApp.exe
+C:\Users\Christian\Desktop\Work\NFCapp\BpNFCApp\BpNFCApp\bin\Debug\BpNFCApp.pdb
+C:\Users\Christian\Desktop\Work\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp.csprojResolveAssemblyReference.cache
+C:\Users\Christian\Desktop\Work\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\MainWindow.baml
+C:\Users\Christian\Desktop\Work\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\MainWindow.g.cs
+C:\Users\Christian\Desktop\Work\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\App.g.cs
+C:\Users\Christian\Desktop\Work\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp_MarkupCompile.cache
+C:\Users\Christian\Desktop\Work\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp.g.resources
+C:\Users\Christian\Desktop\Work\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp.Properties.Resources.resources
+C:\Users\Christian\Desktop\Work\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp.csproj.GenerateResource.Cache
+C:\Users\Christian\Desktop\Work\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp.exe
+C:\Users\Christian\Desktop\Work\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp.pdb
+C:\Users\Steffan\Dropbox\Arbejde\NFC communication\NFCapp\BpNFCApp\BpNFCApp\bin\Debug\BpNFCApp.exe.config
+C:\Users\Steffan\Dropbox\Arbejde\NFC communication\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp.exe
+C:\Users\Steffan\Dropbox\Arbejde\NFC communication\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp.pdb
+C:\Users\sw\Documents\Dev\NFC communication\NFC communication\NFCapp\BpNFCApp\BpNFCApp\bin\Debug\BpNFCApp.exe.config
+C:\Users\sw\Documents\Dev\NFC communication\NFC communication\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp.exe
+C:\Users\sw\Documents\Dev\NFC communication\NFC communication\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp.pdb
+C:\Users\sw\Documents\Dev\NFC communication\NFC communication\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp.csprojResolveAssemblyReference.cache
+C:\Users\sw\Documents\Dev\NFC communication\NFC communication\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\MainWindow.baml
+C:\Users\sw\Documents\Dev\NFC communication\NFC communication\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\MainWindow.g.cs
+C:\Users\sw\Documents\Dev\NFC communication\NFC communication\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\App.g.cs
+C:\Users\sw\Documents\Dev\NFC communication\NFC communication\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp_MarkupCompile.cache
+C:\Users\sw\Documents\Dev\NFC communication\NFC communication\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp.g.resources
+C:\Users\sw\Documents\Dev\NFC communication\NFC communication\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp.Properties.Resources.resources
+C:\Users\sw\Documents\Dev\NFC communication\NFC communication\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp.csproj.GenerateResource.Cache
+C:\Users\sw\Documents\Dev\NFC communication\NFC communication\NFCapp\BpNFCApp\BpNFCApp\bin\Debug\BpNFCApp.exe
+C:\Users\sw\Documents\Dev\NFC communication\NFC communication\NFCapp\BpNFCApp\BpNFCApp\bin\Debug\BpNFCApp.pdb
+C:\Users\sw\Documents\Kurser\Telemedicine and TeleHealth\Week3\Telemedicine Tutorial 1 - Blood Pressure NFC communication\NFC communication\NFCapp\BpNFCApp\BpNFCApp\bin\Debug\BpNFCApp.exe.config
+C:\Users\sw\Documents\Kurser\Telemedicine and TeleHealth\Week3\Telemedicine Tutorial 1 - Blood Pressure NFC communication\NFC communication\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp.exe
+C:\Users\sw\Documents\Kurser\Telemedicine and TeleHealth\Week3\Telemedicine Tutorial 1 - Blood Pressure NFC communication\NFC communication\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp.pdb
+C:\Users\sw\Documents\Kurser\Telemedicine and TeleHealth\Week3\Telemedicine Tutorial 1 - Blood Pressure NFC communication\NFC communication\NFCapp\BpNFCApp\BpNFCApp\bin\Debug\BpNFCApp.exe
+C:\Users\sw\Documents\Kurser\Telemedicine and TeleHealth\Week3\Telemedicine Tutorial 1 - Blood Pressure NFC communication\NFC communication\NFCapp\BpNFCApp\BpNFCApp\bin\Debug\BpNFCApp.pdb
+C:\Users\sw\Documents\Kurser\Telemedicine and TeleHealth\Week3\Telemedicine Tutorial 1 - Blood Pressure NFC communication\NFC communication\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp.csprojResolveAssemblyReference.cache
+C:\Users\sw\Documents\Kurser\Telemedicine and TeleHealth\Week3\Telemedicine Tutorial 1 - Blood Pressure NFC communication\NFC communication\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\MainWindow.baml
+C:\Users\sw\Documents\Kurser\Telemedicine and TeleHealth\Week3\Telemedicine Tutorial 1 - Blood Pressure NFC communication\NFC communication\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\MainWindow.g.cs
+C:\Users\sw\Documents\Kurser\Telemedicine and TeleHealth\Week3\Telemedicine Tutorial 1 - Blood Pressure NFC communication\NFC communication\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\App.g.cs
+C:\Users\sw\Documents\Kurser\Telemedicine and TeleHealth\Week3\Telemedicine Tutorial 1 - Blood Pressure NFC communication\NFC communication\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp_MarkupCompile.cache
+C:\Users\sw\Documents\Kurser\Telemedicine and TeleHealth\Week3\Telemedicine Tutorial 1 - Blood Pressure NFC communication\NFC communication\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp.g.resources
+C:\Users\sw\Documents\Kurser\Telemedicine and TeleHealth\Week3\Telemedicine Tutorial 1 - Blood Pressure NFC communication\NFC communication\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp.Properties.Resources.resources
+C:\Users\sw\Documents\Kurser\Telemedicine and TeleHealth\Week3\Telemedicine Tutorial 1 - Blood Pressure NFC communication\NFC communication\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp.csproj.GenerateResource.Cache
+C:\Users\sw\Documents\Kurser\Telemedicine and TeleHealth\Exercises\Tutorial 1\Telemedicine Tutorial 1 - Blood Pressure NFC communication\NFC communication\NFCapp\BpNFCApp\BpNFCApp\bin\Debug\BpNFCApp.exe.config
+C:\Users\sw\Documents\Kurser\Telemedicine and TeleHealth\Exercises\Tutorial 1\Telemedicine Tutorial 1 - Blood Pressure NFC communication\NFC communication\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp.exe
+C:\Users\sw\Documents\Kurser\Telemedicine and TeleHealth\Exercises\Tutorial 1\Telemedicine Tutorial 1 - Blood Pressure NFC communication\NFC communication\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp.pdb
+C:\Users\sw\Documents\Kurser\Telemedicine and TeleHealth\Exercises\Tutorial 1\Telemedicine Tutorial 1 - Blood Pressure NFC communication\NFC communication\NFCapp\BpNFCApp\BpNFCApp\bin\Debug\BpNFCApp.exe
+C:\Users\sw\Documents\Kurser\Telemedicine and TeleHealth\Exercises\Tutorial 1\Telemedicine Tutorial 1 - Blood Pressure NFC communication\NFC communication\NFCapp\BpNFCApp\BpNFCApp\bin\Debug\BpNFCApp.pdb
+C:\Users\sw\Documents\Kurser\Telemedicine and TeleHealth\Exercises\Tutorial 1\Telemedicine Tutorial 1 - Blood Pressure NFC communication\NFC communication\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp.csprojResolveAssemblyReference.cache
+C:\Users\sw\Documents\Kurser\Telemedicine and TeleHealth\Exercises\Tutorial 1\Telemedicine Tutorial 1 - Blood Pressure NFC communication\NFC communication\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\MainWindow.baml
+C:\Users\sw\Documents\Kurser\Telemedicine and TeleHealth\Exercises\Tutorial 1\Telemedicine Tutorial 1 - Blood Pressure NFC communication\NFC communication\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\MainWindow.g.cs
+C:\Users\sw\Documents\Kurser\Telemedicine and TeleHealth\Exercises\Tutorial 1\Telemedicine Tutorial 1 - Blood Pressure NFC communication\NFC communication\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\App.g.cs
+C:\Users\sw\Documents\Kurser\Telemedicine and TeleHealth\Exercises\Tutorial 1\Telemedicine Tutorial 1 - Blood Pressure NFC communication\NFC communication\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp_MarkupCompile.cache
+C:\Users\sw\Documents\Kurser\Telemedicine and TeleHealth\Exercises\Tutorial 1\Telemedicine Tutorial 1 - Blood Pressure NFC communication\NFC communication\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp.g.resources
+C:\Users\sw\Documents\Kurser\Telemedicine and TeleHealth\Exercises\Tutorial 1\Telemedicine Tutorial 1 - Blood Pressure NFC communication\NFC communication\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp.Properties.Resources.resources
+C:\Users\sw\Documents\Kurser\Telemedicine and TeleHealth\Exercises\Tutorial 1\Telemedicine Tutorial 1 - Blood Pressure NFC communication\NFC communication\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp.csproj.GenerateResource.Cache
+C:\Users\sw\Documents\Kurser\Telemedicine and TeleHealth\Exercises\Tutorial 1\Telemedicine Tutorial 1 - Blood Pressure NFC communication\NFC communication\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp.csproj.CoreCompileInputs.cache
+C:\Users\Ida Skovbjerg\Documents\Dev\NFC communication\NFCapp\BpNFCApp\BpNFCApp\bin\Debug\BpNFCApp.exe.config
+C:\Users\Ida Skovbjerg\Documents\Dev\NFC communication\NFCapp\BpNFCApp\BpNFCApp\bin\Debug\BpNFCApp.exe
+C:\Users\Ida Skovbjerg\Documents\Dev\NFC communication\NFCapp\BpNFCApp\BpNFCApp\bin\Debug\BpNFCApp.pdb
+C:\Users\Ida Skovbjerg\Documents\Dev\NFC communication\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp.csprojAssemblyReference.cache
+C:\Users\Ida Skovbjerg\Documents\Dev\NFC communication\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\MainWindow.baml
+C:\Users\Ida Skovbjerg\Documents\Dev\NFC communication\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\MainWindow.g.cs
+C:\Users\Ida Skovbjerg\Documents\Dev\NFC communication\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\App.g.cs
+C:\Users\Ida Skovbjerg\Documents\Dev\NFC communication\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp_MarkupCompile.cache
+C:\Users\Ida Skovbjerg\Documents\Dev\NFC communication\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp.g.resources
+C:\Users\Ida Skovbjerg\Documents\Dev\NFC communication\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp.Properties.Resources.resources
+C:\Users\Ida Skovbjerg\Documents\Dev\NFC communication\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp.csproj.GenerateResource.cache
+C:\Users\Ida Skovbjerg\Documents\Dev\NFC communication\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp.csproj.CoreCompileInputs.cache
+C:\Users\Ida Skovbjerg\Documents\Dev\NFC communication\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp.exe
+C:\Users\Ida Skovbjerg\Documents\Dev\NFC communication\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp.pdb
