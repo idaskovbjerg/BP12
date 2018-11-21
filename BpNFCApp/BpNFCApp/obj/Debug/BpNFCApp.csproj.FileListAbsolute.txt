@@ -68,3 +68,17 @@ C:\Users\Ida Skovbjerg\Documents\Dev\NFC communication\NFCapp\BpNFCApp\BpNFCApp\
 C:\Users\Ida Skovbjerg\Documents\Dev\NFC communication\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp.csproj.CoreCompileInputs.cache
 C:\Users\Ida Skovbjerg\Documents\Dev\NFC communication\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp.exe
 C:\Users\Ida Skovbjerg\Documents\Dev\NFC communication\NFCapp\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp.pdb
+C:\Users\Ida Skovbjerg\Documents\BP12\BpNFCApp\BpNFCApp\bin\Debug\BpNFCApp.exe.config
+C:\Users\Ida Skovbjerg\Documents\BP12\BpNFCApp\BpNFCApp\bin\Debug\BpNFCApp.exe
+C:\Users\Ida Skovbjerg\Documents\BP12\BpNFCApp\BpNFCApp\bin\Debug\BpNFCApp.pdb
+C:\Users\Ida Skovbjerg\Documents\BP12\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp.csprojAssemblyReference.cache
+C:\Users\Ida Skovbjerg\Documents\BP12\BpNFCApp\BpNFCApp\obj\Debug\MainWindow.baml
+C:\Users\Ida Skovbjerg\Documents\BP12\BpNFCApp\BpNFCApp\obj\Debug\MainWindow.g.cs
+C:\Users\Ida Skovbjerg\Documents\BP12\BpNFCApp\BpNFCApp\obj\Debug\App.g.cs
+C:\Users\Ida Skovbjerg\Documents\BP12\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp_MarkupCompile.cache
+C:\Users\Ida Skovbjerg\Documents\BP12\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp.g.resources
+C:\Users\Ida Skovbjerg\Documents\BP12\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp.Properties.Resources.resources
+C:\Users\Ida Skovbjerg\Documents\BP12\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp.csproj.GenerateResource.cache
+C:\Users\Ida Skovbjerg\Documents\BP12\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp.csproj.CoreCompileInputs.cache
+C:\Users\Ida Skovbjerg\Documents\BP12\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp.exe
+C:\Users\Ida Skovbjerg\Documents\BP12\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp.pdb
