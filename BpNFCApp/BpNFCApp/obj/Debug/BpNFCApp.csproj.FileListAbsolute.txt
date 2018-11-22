@@ -82,3 +82,8 @@ C:\Users\Ida Skovbjerg\Documents\BP12\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp.cspro
 C:\Users\Ida Skovbjerg\Documents\BP12\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp.csproj.CoreCompileInputs.cache
 C:\Users\Ida Skovbjerg\Documents\BP12\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp.exe
 C:\Users\Ida Skovbjerg\Documents\BP12\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp.pdb
+C:\Users\Ida Skovbjerg\Documents\BP12\BpNFCApp\BpNFCApp\obj\Debug\Guide.g.cs
+C:\Users\Ida Skovbjerg\Documents\BP12\BpNFCApp\BpNFCApp\obj\Debug\Login.g.cs
+C:\Users\Ida Skovbjerg\Documents\BP12\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp_MarkupCompile.lref
+C:\Users\Ida Skovbjerg\Documents\BP12\BpNFCApp\BpNFCApp\obj\Debug\Guide.baml
+C:\Users\Ida Skovbjerg\Documents\BP12\BpNFCApp\BpNFCApp\obj\Debug\Login.baml
