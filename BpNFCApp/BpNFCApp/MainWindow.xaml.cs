@@ -46,15 +46,102 @@ namespace BpNFCApp
 
             myWatcher.Filter = "*.csv";
             myWatcher.EnableRaisingEvents = true;
+            
         }
 
         private void FileCreated(object sender, FileSystemEventArgs e)
         {
             Thread.Sleep(500);
             FileInfo file = new FileInfo(e.FullPath);
+            var diaAverage = 0;
+            var sysAverage = 0;
             if (file.Name.Contains("bpmonitor"))
             {
-                Dispatcher.BeginInvoke(new Action(() => { DataContext = MeasurementService.ReadFile(e.FullPath); }));
+                for (int i = 0; i < 1; i++)
+                {
+                    var dia = MeasurementService.ReadFile(e.FullPath)[i].Diastolic;
+                    var sys = MeasurementService.ReadFile(e.FullPath)[i].Systolic;
+
+                    for (int j = 0; j <= 6; j++)
+                    {
+                        var dia1 = MeasurementService.ReadFile(e.FullPath)[i + 1].Diastolic;
+                        var dia2 = MeasurementService.ReadFile(e.FullPath)[i + 2].Diastolic;
+                        if (dia + j == dia1)
+                        {
+                            for (int k = 0; k <= 6; k++)
+                            {
+                                if (dia + k == dia2)
+                                {
+                                    diaAverage = dia + dia1 + dia2;
+
+                                }
+
+                                if (dia - k == dia2)
+                                { 
+                                    diaAverage = dia + dia1 + dia2;
+                                }
+                            } 
+                        }
+
+                        if (dia - j == dia1)
+                        {
+                            for (int k = 0; k <= 6; k++)
+                            {
+                                if (dia + k == dia2)
+                                {
+                                    diaAverage = dia + dia1 + dia2;
+                                }
+
+                                if (dia - k == dia2 )
+                                {
+                                    diaAverage = dia + dia1 + dia2;
+                                }
+                            }
+                        }
+                    }
+
+                    for (int k = 0; k <= 10; k++)
+                    {
+                        var sys1 = MeasurementService.ReadFile(e.FullPath)[i + 1].Systolic;
+                        var sys2 = MeasurementService.ReadFile(e.FullPath)[i + 2].Systolic;
+                        if (sys + k == sys1 )
+                        {
+                            for (int j = 0; j <= 10; j++)
+                            {
+                                if (sys + j == sys2)
+                                {
+                                    sysAverage = sys + sys1 + sys2;
+                                }
+
+                                if (sys - j == sys2)
+                                {
+                                    sysAverage = sys + sys1 + sys2;
+                                }
+                            }
+                        }
+
+                        if (sys - k == sys1)
+                        {
+                            for (int j = 0; j <= 10; j++)
+                            {
+                                if (sys + j == sys2)
+                                {
+                                    sysAverage = sys + sys1 + sys2;
+                                }
+
+                                if (sys - j == sys2)
+                                {
+                                    sysAverage = sys + sys1 + sys2;
+                                }
+                            }
+                        }
+                    }
+                }
+                Dispatcher.BeginInvoke(new Action(() =>
+                    {
+                        BloodPressureLabel.Content =
+                            Math.Round(sysAverage / 3.0) + "/" + Math.Round(diaAverage / 3.0) + " mmHg";
+                    }));
             }
             
         }

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -103,8 +105,15 @@ namespace BpNFCApp
             GuideLabel.Content = "Gør som på billedet.";
             TransferButton.IsEnabled = false;
 
-            // Algoritme:
+            // Åben resultat vindue:
+            
+            MainWindow resultat = new MainWindow();
+            resultat.Show();
+
+            //this.Close();
+
 
         }
+        
     }
 }
