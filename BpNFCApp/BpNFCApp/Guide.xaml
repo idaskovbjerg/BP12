@@ -5,9 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BpNFCApp"
         mc:Ignorable="d"
-        Title="Guide" Height="450" Width="800">
+        Title="Guide" 
+        WindowState="Maximized"
+        WindowStyle="None">
     <Grid>
-        <TextBlock HorizontalAlignment="Left" TextAlignment="Center" FontSize="40" Text="00:00:00" Name="TimerTextBlock" Margin="50,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.509" Height="55" Width="150"/>
-
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="350"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBlock TextAlignment="Center" FontSize="50" Text="00:00:00" Name="TimerTextBlock" Margin="50,100,50,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.509" Height="69"/>
+        <Image HorizontalAlignment="Right" Name="GuideImage" Margin="0,50,50,80" Width="350" Grid.Column="1"/>
+        <Label Name="GuideLabel" Grid.Column="1" Margin="0,100,400,0" FontSize="30" VerticalAlignment="Top" HorizontalAlignment="Right" />
+        <Button Name="Done1Button" Content="Udført" FontSize="30" Grid.Column="1" Margin="0,0,50,15" HorizontalAlignment="Right" Width="150" Height="50" VerticalAlignment="Bottom" Click="Done1Button_Click"/>
+        <Button Name="Done2Button" Content="Udført" Visibility="Hidden" FontSize="30" Grid.Column="1" Margin="0,0,50,15" HorizontalAlignment="Right" Width="150" Height="50" VerticalAlignment="Bottom" Click="Done2Button_Click" />
+        <Button Name="StartButton" Content="Klar" Visibility="Hidden" FontSize="30" Grid.Column="1" Margin="0,0,50,15" HorizontalAlignment="Right" Width="150" Height="50" VerticalAlignment="Bottom" Click="StartButton_Click" />
+        <Button Name="NewMeasurementButton" Content="Ny måling" Visibility="Hidden" FontSize="30" Grid.Column="1" Margin="0,0,50,15" HorizontalAlignment="Right" Width="150" Height="50" VerticalAlignment="Bottom" Click="StartButton_Click"/>
+        <Button Name="TransferButton" Content="Resultat" Visibility="Hidden" FontSize="30" Grid.Column="1" Margin="0,0,210,15" HorizontalAlignment="Right" Width="150" Height="50" VerticalAlignment="Bottom" Click="TransferButton_Click"/>
+        <Button Name="SupportButton" Content="Hjælp" FontSize="30" HorizontalAlignment="Left" Margin="50,0,0,15" Width="150" Height="50" VerticalAlignment="Bottom" Grid.Column="0"/>
     </Grid>
 </Window>
