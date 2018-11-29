@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using OpenTeleNet.API;
 
 namespace BpNFCApp
 {
@@ -22,7 +23,7 @@ namespace BpNFCApp
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
-    {
+    { 
         public MainWindow()
         {
             InitializeComponent();
@@ -48,19 +49,25 @@ namespace BpNFCApp
             myWatcher.EnableRaisingEvents = true;
             
         }
-
+        private double diaAverage = 0;
+        private double sysAverage = 0;
+        private double puls = 0;
+        private string severity = "";
         private void FileCreated(object sender, FileSystemEventArgs e)
         {
             Thread.Sleep(500);
             FileInfo file = new FileInfo(e.FullPath);
-            var diaAverage = 0;
-            var sysAverage = 0;
+            
             if (file.Name.Contains("bpmonitor"))
             {
                 for (int i = 0; i < 1; i++)
                 {
                     var dia = MeasurementService.ReadFile(e.FullPath)[i].Diastolic;
                     var sys = MeasurementService.ReadFile(e.FullPath)[i].Systolic;
+                    puls = (MeasurementService.ReadFile(e.FullPath)[0].Pulse +
+                            MeasurementService.ReadFile(e.FullPath)[1].Pulse +
+                            MeasurementService.ReadFile(e.FullPath)[2].Pulse) / 3;
+                    
 
                     for (int j = 0; j <= 6; j++)
                     {
@@ -72,13 +79,13 @@ namespace BpNFCApp
                             {
                                 if (dia + k == dia2)
                                 {
-                                    diaAverage = dia + dia1 + dia2;
+                                    diaAverage = (dia + dia1 + dia2)/3.0;
 
                                 }
 
                                 if (dia - k == dia2)
                                 { 
-                                    diaAverage = dia + dia1 + dia2;
+                                    diaAverage = (dia + dia1 + dia2)/3.0;
                                 }
                             } 
                         }
@@ -89,12 +96,12 @@ namespace BpNFCApp
                             {
                                 if (dia + k == dia2)
                                 {
-                                    diaAverage = dia + dia1 + dia2;
+                                    diaAverage = (dia + dia1 + dia2)/3.0;
                                 }
 
                                 if (dia - k == dia2 )
                                 {
-                                    diaAverage = dia + dia1 + dia2;
+                                    diaAverage = (dia + dia1 + dia2)/3.0;
                                 }
                             }
                         }
@@ -110,12 +117,12 @@ namespace BpNFCApp
                             {
                                 if (sys + j == sys2)
                                 {
-                                    sysAverage = sys + sys1 + sys2;
+                                    sysAverage = (sys + sys1 + sys2)/3.0;
                                 }
 
                                 if (sys - j == sys2)
                                 {
-                                    sysAverage = sys + sys1 + sys2;
+                                    sysAverage = (sys + sys1 + sys2)/3.0;
                                 }
                             }
                         }
@@ -126,12 +133,12 @@ namespace BpNFCApp
                             {
                                 if (sys + j == sys2)
                                 {
-                                    sysAverage = sys + sys1 + sys2;
+                                    sysAverage = (sys + sys1 + sys2)/3.0;
                                 }
 
                                 if (sys - j == sys2)
                                 {
-                                    sysAverage = sys + sys1 + sys2;
+                                    sysAverage = (sys + sys1 + sys2)/3.0;
                                 }
                             }
                         }
@@ -140,10 +147,50 @@ namespace BpNFCApp
                 Dispatcher.BeginInvoke(new Action(() =>
                     {
                         BloodPressureLabel.Content =
-                            Math.Round(sysAverage / 3.0) + "/" + Math.Round(diaAverage / 3.0) + " mmHg";
+                            Math.Round(sysAverage) + "/" + Math.Round(diaAverage) + " mmHg";
                     }));
+                if (sysAverage >= 140)
+                {
+                    severity = "RED";
+                }
+
+                if (sysAverage < 140 && sysAverage > 120)
+                {
+                    severity = "YELLOW";
+                }
+                else
+                {
+                    if (diaAverage > 90 && diaAverage <= 100)
+                    {
+                        severity = "YELLOW";
+                    }
+
+                    if (diaAverage > 100)
+                    {
+                        severity = "RED";
+                    }
+                    else
+                    {
+                        severity = "GREEN";
+                    }
+                    
+                }
             }
             
+        }
+        public string UserName
+        {
+            get;
+            set;
+        }
+        public string PassWord { get; set; }
+
+        private void LogoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            var openTeleFacade = new OpenTeleNetWrapperFacade("http://opentele.aliviate.dk:4288/opentele-citizen-server/");
+            openTeleFacade.postQuestionnaireBloodPressureMeasurement(Math.Round(sysAverage).ToString(),
+                Math.Round(diaAverage).ToString(), Math.Round(puls).ToString(), severity,
+                UserName, PassWord);
         }
     }
 }

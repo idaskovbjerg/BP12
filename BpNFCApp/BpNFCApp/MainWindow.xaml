@@ -6,11 +6,11 @@
         <!--<DataGrid AutoGenerateColumns="True"
               ItemsSource="{Binding}" CanUserAddRows="False" IsReadOnly="True"/>-->
 
-        <Button Name="LogoutButton" Content="Gem, log ud og afslut"  FontSize="30" Margin="0,0,50,15" HorizontalAlignment="Right" Width="300" Height="50" VerticalAlignment="Bottom"/>
+        <Button Name="LogoutButton" Content="Gem, log ud og afslut"  FontSize="30" Margin="0,0,50,15" HorizontalAlignment="Right" Width="300" Click="LogoutButton_Click" Height="50" VerticalAlignment="Bottom"/>
 
         <Button Name="SupportButton" Content="Hjælp" FontSize="30" HorizontalAlignment="Left" Margin="50,0,0,15" Width="150" Height="50" VerticalAlignment="Bottom" />
         <Label Content="Resultat af blodtryksmålingen" FontSize="30" HorizontalAlignment="Left" Margin="50,50,0,0" VerticalAlignment="Top"/>
-        <Label Name="BloodPressureLabel" HorizontalAlignment="Left" Content="Diastole" FontSize="25" Margin="50,100,0,0" VerticalAlignment="Top"/>
+        <Label Name="BloodPressureLabel" HorizontalAlignment="Left" Content="Blodtryk" FontSize="25" Margin="50,100,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

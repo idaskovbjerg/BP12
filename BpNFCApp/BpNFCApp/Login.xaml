@@ -5,14 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BpNFCApp"
         mc:Ignorable="d"
-        Title="Login" Height="450" Width="800">
+        Title="Login" WindowState="Maximized" WindowStyle="None">
     <Grid>
-        <Label Content="Indtast login informationerne som du modtog i din e-boks" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <Label Content="Brugernavn:" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
-        <Label Content="Adgangskode: " HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Name="UsernameTextbox" Height="23" Margin="110,45,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <PasswordBox HorizontalAlignment="Left" Name="PasswordBox" Height="23" Width="120" Margin="110,73,0,0" VerticalAlignment="Top"/>
-        <Button Content="Log ind" HorizontalAlignment="Left" Margin="155,101,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Label Content="Indtast login informationerne som du modtog i din e-boks" FontSize="35" HorizontalAlignment="Center" Margin="10,50,0,0" VerticalAlignment="Top" Height="60"/>
+        <Label Content="Brugernavn:" FontSize="30" HorizontalAlignment="Center" Margin="196,140,396.333,0" VerticalAlignment="Top"/>
+        <Label Content="Adgangskode: " FontSize="30" HorizontalAlignment="Center" Margin="196,195,357.333,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Center" FontSize="30" Name="UsernameTextbox" Height="50" Margin="409,140,177.333,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="175"/>
+        <PasswordBox HorizontalAlignment="Center" Name="PasswordBox" FontSize="30" Height="50" Width="175" Margin="409,195,177.333,0" VerticalAlignment="Top"/>
+        <Button Content="Log ind" FontSize="30" HorizontalAlignment="Center" Margin="449,252,177.333,0" VerticalAlignment="Top" Width="135" Click="Button_Click"/>
+        <Image HorizontalAlignment="Center" Source="Images/OpenTele_logo.png" Margin="117,0,484,30" Width="160" Height="170" VerticalAlignment="Bottom"/>
+        <Image HorizontalAlignment="Center" Source="Images/aulogo.jpg" Margin="320,0,7,30" Width="434" Height="170" VerticalAlignment="Bottom"/>
 
 
     </Grid>

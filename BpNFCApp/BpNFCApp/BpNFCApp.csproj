@@ -122,6 +122,25 @@
   <ItemGroup>
     <Resource Include="Images\position6.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\position5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Aarhus ingeniørhøjskole\Kandidat\2. Semester\Telemedicinske systemer\Exercises\Tutorial 5.1\Tutorial 5\Source\Source\api\OpenTeleDTO\OpenTeleDTO.csproj">
+      <Project>{da1c160a-8162-41b0-b733-61bbe00c0c20}</Project>
+      <Name>OpenTeleDTO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Aarhus ingeniørhøjskole\Kandidat\2. Semester\Telemedicinske systemer\Exercises\Tutorial 5.1\Tutorial 5\Source\Source\api\OpenTeleNetAPI\OpenTeleNetAPI.csproj">
+      <Project>{bc28b676-34fc-4fff-a7d0-7c53c6943ff4}</Project>
+      <Name>OpenTeleNetAPI</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\OpenTele_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\aulogo.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

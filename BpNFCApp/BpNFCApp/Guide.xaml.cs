@@ -25,6 +25,8 @@ namespace BpNFCApp
     {
         private DispatcherTimer _timer;
         private TimeSpan _time;
+        private TimeSpan timeSpan;
+        private DispatcherTimer dispatcherTimer;
         public Guide()
         {
             InitializeComponent();
@@ -62,6 +64,8 @@ namespace BpNFCApp
 
             _time = TimeSpan.FromMinutes(0.1);
 
+            timeSpan = TimeSpan.FromSeconds(10);
+
             _timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
             {
                 TimerTextBlock.Text = _time.ToString("c");
@@ -74,7 +78,22 @@ namespace BpNFCApp
                     NewMeasurementButton.Visibility = Visibility.Visible;
                     NewMeasurementButton.IsEnabled = true;
 
-                    GuideLabel.Content = "Tryk på Start knappen på \nblodtryksmåleren.\n \nNår målingen er færdig,\ntryk på Ny måling knappen.";
+                    GuideLabel.Content = "Tryk på Start knappen på \nblodtryksmåleren.\n \nManchetten pustes nu op \nog måler blodtrykket.";
+
+                    dispatcherTimer =
+                        new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
+                        {
+                            if (timeSpan == TimeSpan.Zero)
+                            {
+                                dispatcherTimer.Stop(); 
+                                GuideLabel.Content = "Når blodtryksmålingen er foretaget, \nvil skærmen på blodtryksmåleren\nvære som på billedet.\n \nNår målingen er færdig,\ntryk på Ny måling knappen.";
+                                GuideImage.Source = new BitmapImage(new Uri("Images/position5.jpg", UriKind.Relative));
+
+                            }
+                            timeSpan = timeSpan.Add(TimeSpan.FromSeconds(-1));
+                        }, Application.Current.Dispatcher);
+                    dispatcherTimer.Start();
+
                     if (count == 3)
                     {
                         TransferButton.Visibility = Visibility.Visible;
@@ -106,14 +125,21 @@ namespace BpNFCApp
             TransferButton.IsEnabled = false;
 
             // Åben resultat vindue:
-            
+            Thread.Sleep(5000);
             MainWindow resultat = new MainWindow();
+            resultat.UserName = UserName;
+            resultat.PassWord = PassWord;
             resultat.Show();
-
+            
             //this.Close();
 
 
         }
-        
+        public string UserName
+        {
+            get;
+            set;
+        }
+        public string PassWord { get; set; }
     }
 }

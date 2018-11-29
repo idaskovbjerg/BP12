@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using OpenTeleNet.API;
 
 namespace BpNFCApp
 {
@@ -26,9 +27,19 @@ namespace BpNFCApp
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            //First - let us create a facade for the OpenTeleNetWrapperFacade API (SW)   
+            //var openTeleFacade = new OpenTeleNetWrapperFacade("http://opentele-citizen.4s-online.dk/");
+            var openTeleFacade = new OpenTeleNetWrapperFacade("http://opentele.aliviate.dk:4288/opentele-citizen-server/");
+
+            //TROUBLESHOOT: Use the below if 4s is down 
+            //var openTeleFacade = new OpenTeleNetWrapperFacade("http://openteletest1.medicaconnect.dk:8088/opentele-citizen-server/");
+
+            var list = openTeleFacade.Login(UsernameTextbox.Text, PasswordBox.Password);
             Guide guideWindow = new Guide();
-            guideWindow.Show();
+            guideWindow.PassWord = PasswordBox.Password;
+            guideWindow.UserName = UsernameTextbox.Text;
             this.Close();
+            guideWindow.Show();
         }
     }
 }
