@@ -112,3 +112,4 @@ C:\Users\ida_s\Documents\BP12\BpNFCApp\BpNFCApp\bin\Debug\Newtonsoft.Json.dll
 C:\Users\ida_s\Documents\BP12\BpNFCApp\BpNFCApp\bin\Debug\OpenTeleDTO.pdb
 C:\Users\ida_s\Documents\BP12\BpNFCApp\BpNFCApp\bin\Debug\OpenTeleNetAPI.pdb
 C:\Users\ida_s\Documents\BP12\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp.csproj.CopyComplete
+C:\Users\ida_s\Documents\BP12\BpNFCApp\BpNFCApp\obj\Debug\BpNFCApp.csproj.ResolveComReference.cache

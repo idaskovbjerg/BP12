@@ -40,7 +40,7 @@ namespace BpNFCApp
         private void Done1Button_Click(object sender, RoutedEventArgs e)
         {
             GuideImage.Source = new BitmapImage(new Uri("Images/position2.jpg", UriKind.Relative));
-            GuideLabel.Content = "Sæt mancetten på højre arm:\n \n     1. Fjern tøj fra overarmen.\n \n     2. Slangen skal pege væk fra \n         kroppen. \n \n     3. Stram ikke mancetten for meget: \n         der skal kunne være to fingre \n         under mancetten.";
+            GuideLabel.Content = "Sæt mancetten på højre arm:\n \n    1. Fjern tøj fra overarmen.\n \n    2. Slangen skal pege væk fra \n        kroppen. \n \n    3. Stram ikke mancetten for meget: \n        der skal kunne være to fingre \n        under mancetten.";
             Done1Button.Visibility = Visibility.Hidden;
             Done2Button.Visibility = Visibility.Visible;
         }
@@ -54,17 +54,21 @@ namespace BpNFCApp
         }
 
         private int count = 0;
+        
 
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
+            NewMeasurementButton.Visibility = Visibility.Visible;
+            NewMeasurementButton.IsEnabled = false;
+
             TimerTextBlock.Foreground = new SolidColorBrush(Colors.Black);
             GuideLabel.Foreground = new SolidColorBrush(Colors.Black);
 
             TimerTextBlock.Visibility = Visibility.Visible;
 
-            _time = TimeSpan.FromMinutes(0.1);
+            _time = TimeSpan.FromMinutes(0.1); // 5 minutes
 
-            timeSpan = TimeSpan.FromSeconds(10);
+            timeSpan = TimeSpan.FromSeconds(3); // ca. 20 sek
 
             _timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
             {
@@ -75,9 +79,7 @@ namespace BpNFCApp
                     GuideImage.Source = new BitmapImage(new Uri("Images/position4.jpg", UriKind.Relative));
                     TimerTextBlock.Foreground = new SolidColorBrush(Colors.Green);
                     GuideLabel.Foreground = new SolidColorBrush(Colors.Green);
-                    NewMeasurementButton.Visibility = Visibility.Visible;
-                    NewMeasurementButton.IsEnabled = true;
-
+                    
                     GuideLabel.Content = "Tryk på Start knappen på \nblodtryksmåleren.\n \nManchetten pustes nu op \nog måler blodtrykket.";
 
                     dispatcherTimer =
@@ -88,20 +90,11 @@ namespace BpNFCApp
                                 dispatcherTimer.Stop(); 
                                 GuideLabel.Content = "Når blodtryksmålingen er foretaget, \nvil skærmen på blodtryksmåleren\nvære som på billedet.\n \nNår målingen er færdig,\ntryk på Ny måling knappen.";
                                 GuideImage.Source = new BitmapImage(new Uri("Images/position5.jpg", UriKind.Relative));
-
+                                NewMeasurementButton.IsEnabled = true;
                             }
                             timeSpan = timeSpan.Add(TimeSpan.FromSeconds(-1));
                         }, Application.Current.Dispatcher);
                     dispatcherTimer.Start();
-
-                    if (count == 3)
-                    {
-                        TransferButton.Visibility = Visibility.Visible;
-                        GuideLabel.Content = "Du har nu udført \n3 blodtryksmålinger.\n \nTryk på Resultat knappen.";
-                        NewMeasurementButton.IsEnabled = false;
-                    }
-
-                    
                 }
                 _time = _time.Add(TimeSpan.FromSeconds(-1));
             }, Application.Current.Dispatcher);
@@ -110,7 +103,6 @@ namespace BpNFCApp
 
             GuideImage.Source = new BitmapImage(new Uri("Images/position3.jpg", UriKind.Relative));
             GuideLabel.Content = "Vent i 5 minutter.\n \n\u2022 Sid afslappet.\n \n\u2022 Begge fødder skal være på jorden.\n \n\u2022 Benene må ikke krydses. \n \n\u2022 Du må ikke tale. \n \n";
-            NewMeasurementButton.IsEnabled = false;
             StartButton.Visibility = Visibility.Hidden;
             count++;
             
@@ -120,18 +112,17 @@ namespace BpNFCApp
         {
             TimerTextBlock.Foreground = new SolidColorBrush(Colors.Black);
             GuideLabel.Foreground = new SolidColorBrush(Colors.Black);
-            GuideImage.Source = new BitmapImage(new Uri("Images/position6.jpg", UriKind.Relative));
-            GuideLabel.Content = "Gør som på billedet.";
+            GuideImage.Source = new BitmapImage(new Uri("Images/position3.jpg", UriKind.Relative));
+            GuideLabel.Content = "Foretag endnu en blodtryksmåling. \n\nTryk på Ny måling.";
             TransferButton.IsEnabled = false;
+            NewMeasurement2Button.IsEnabled = true;
 
-            // Åben resultat vindue:
-            Thread.Sleep(5000);
+            
             MainWindow resultat = new MainWindow();
             resultat.UserName = UserName;
             resultat.PassWord = PassWord;
             resultat.Show();
             
-            //this.Close();
 
 
         }
@@ -141,5 +132,124 @@ namespace BpNFCApp
             set;
         }
         public string PassWord { get; set; }
+
+        private void NewMeasurement2Button_Click(object sender, RoutedEventArgs e)
+        {
+            TimerTextBlock.Foreground = new SolidColorBrush(Colors.Black);
+            GuideLabel.Foreground = new SolidColorBrush(Colors.Black);
+
+            TimerTextBlock.Visibility = Visibility.Visible;
+
+            _time = TimeSpan.FromMinutes(0.3);
+
+            timeSpan = TimeSpan.FromSeconds(3);
+
+            _timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
+            {
+                TimerTextBlock.Text = _time.ToString("c");
+                if (_time == TimeSpan.Zero)
+                {
+                    _timer.Stop();
+                    GuideImage.Source = new BitmapImage(new Uri("Images/position4.jpg", UriKind.Relative));
+                    TimerTextBlock.Foreground = new SolidColorBrush(Colors.Green);
+                    GuideLabel.Foreground = new SolidColorBrush(Colors.Green);
+                    NewMeasurement2Button.Visibility = Visibility.Visible;
+
+                    GuideLabel.Content = "Tryk på Start knappen på \nblodtryksmåleren.\n \nManchetten pustes nu op \nog måler blodtrykket.";
+
+                    dispatcherTimer =
+                        new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
+                        {
+                            if (timeSpan == TimeSpan.Zero)
+                            {
+                                dispatcherTimer.Stop();
+                                GuideLabel.Content = "Når blodtryksmålingen er foretaget, \nvil skærmen på blodtryksmåleren\nvære som på billedet.\n \nNår målingen er færdig,\ntryk på Ny måling knappen.";
+                                GuideImage.Source = new BitmapImage(new Uri("Images/position5.jpg", UriKind.Relative));
+                                NewMeasurement2Button.IsEnabled = true;
+
+                            }
+                            if (timeSpan == TimeSpan.Zero && count >= 3)
+                            {
+                                dispatcherTimer.Stop();
+                                TransferButton.Visibility = Visibility.Visible;
+                                GuideImage.Source = new BitmapImage(new Uri("Images/position5.jpg", UriKind.Relative));
+                                GuideLabel.Content = "Du har nu udført \n3 blodtryksmålinger.\n \nTryk på Resultat knappen.";
+                                NewMeasurement2Button.IsEnabled = false;
+                                TransferButton.IsEnabled = true;
+                            }
+                            timeSpan = timeSpan.Add(TimeSpan.FromSeconds(-1));
+                        }, Application.Current.Dispatcher);
+                    dispatcherTimer.Start();
+
+                    //if (timeSpan == TimeSpan.Zero && count == 3)
+                    //{
+                    //    TransferButton.Visibility = Visibility.Visible;
+                    //    GuideLabel.Content = "Du har nu udført \n3 blodtryksmålinger.\n \nTryk på Resultat knappen.";
+                    //    NewMeasurement2Button.IsEnabled = false;
+                    //}
+                }
+                _time = _time.Add(TimeSpan.FromSeconds(-1));
+            }, Application.Current.Dispatcher);
+
+            _timer.Start();
+
+            GuideImage.Source = new BitmapImage(new Uri("Images/position3.jpg", UriKind.Relative));
+            GuideLabel.Content = "Vent i 1 minut.\n \n\u2022 Sid afslappet.\n \n\u2022 Begge fødder skal være på jorden.\n \n\u2022 Benene må ikke krydses. \n \n\u2022 Du må ikke tale. \n \n";
+            NewMeasurement2Button.IsEnabled = false;
+            StartButton.Visibility = Visibility.Hidden;
+            count++;
+        }
+
+        private void NewMeasurementButton_Click(object sender, RoutedEventArgs e)
+        {
+            TimerTextBlock.Foreground = new SolidColorBrush(Colors.Black);
+            GuideLabel.Foreground = new SolidColorBrush(Colors.Black);
+
+            TimerTextBlock.Visibility = Visibility.Visible;
+
+            _time = TimeSpan.FromMinutes(0.2);
+
+            timeSpan = TimeSpan.FromSeconds(3);
+
+            _timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
+            {
+                TimerTextBlock.Text = _time.ToString("c");
+                if (_time == TimeSpan.Zero)
+                {
+                    _timer.Stop();
+                    GuideImage.Source = new BitmapImage(new Uri("Images/position4.jpg", UriKind.Relative));
+                    TimerTextBlock.Foreground = new SolidColorBrush(Colors.Green);
+                    GuideLabel.Foreground = new SolidColorBrush(Colors.Green);
+                    NewMeasurement2Button.Visibility = Visibility.Visible;
+
+                    GuideLabel.Content = "Tryk på Start knappen på \nblodtryksmåleren.\n \nManchetten pustes nu op \nog måler blodtrykket.";
+
+                    dispatcherTimer =
+                        new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
+                        {
+                            if (timeSpan == TimeSpan.Zero)
+                            {
+                                dispatcherTimer.Stop();
+                                GuideLabel.Content = "Når blodtryksmålingen er foretaget, \nvil skærmen på blodtryksmåleren\nvære som på billedet.\n \nNår målingen er færdig,\ntryk på Ny måling knappen.";
+                                GuideImage.Source = new BitmapImage(new Uri("Images/position5.jpg", UriKind.Relative));
+                                NewMeasurement2Button.IsEnabled = true;
+
+                            }
+                            timeSpan = timeSpan.Add(TimeSpan.FromSeconds(-1));
+                        }, Application.Current.Dispatcher);
+                    dispatcherTimer.Start();
+                }
+                _time = _time.Add(TimeSpan.FromSeconds(-1));
+            }, Application.Current.Dispatcher);
+
+            _timer.Start();
+
+            GuideImage.Source = new BitmapImage(new Uri("Images/position3.jpg", UriKind.Relative));
+            GuideLabel.Content = "Vent i 1 minut.\n \n\u2022 Sid afslappet.\n \n\u2022 Begge fødder skal være på jorden.\n \n\u2022 Benene må ikke krydses. \n \n\u2022 Du må ikke tale. \n \n";
+            NewMeasurementButton.Visibility = Visibility.Hidden;
+            NewMeasurement2Button.Visibility = Visibility.Visible;
+            NewMeasurement2Button.IsEnabled = false;
+            count++;
+        }
     }
 }
