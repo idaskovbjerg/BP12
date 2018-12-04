@@ -1,0 +1,15 @@
+﻿<Window x:Class="BpNFCApp.PopupWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BpNFCApp"
+        mc:Ignorable="d"
+        Title="Hjælp" Height="250" Width="400">
+    <Grid>
+        <Label Content="Support og hjælp" FontSize="20" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="Support funktionaliteten er desværre ikke etableret." FontSize="16" Margin="10,47,10,0" VerticalAlignment="Top"/>
+        <Button Content="Luk" FontSize="20" Margin="306,172,15,10" Click="Button_Click"/>
+
+    </Grid>
+</Window>

@@ -20,8 +20,8 @@
         <Button Name="Done2Button" Content="Udført" Visibility="Hidden" FontSize="30" Grid.Column="1" Margin="0,0,50,15" HorizontalAlignment="Right" Width="150" Height="50" VerticalAlignment="Bottom" Click="Done2Button_Click" />
         <Button Name="StartButton" Content="Klar" Visibility="Hidden" FontSize="30" Grid.Column="1" Margin="0,0,50,15" HorizontalAlignment="Right" Width="150" Height="50" VerticalAlignment="Bottom" Click="StartButton_Click" />
         <Button Name="NewMeasurementButton" Content="Ny måling" Visibility="Hidden" FontSize="30" Grid.Column="1" Margin="0,0,50,15" HorizontalAlignment="Right" Width="150" Height="50" VerticalAlignment="Bottom" Click="NewMeasurementButton_Click"/>
-        <Button Name="NewMeasurement2Button" Content="Ny måling2" Visibility="Hidden" FontSize="30" Grid.Column="1" Margin="0,0,50,15" HorizontalAlignment="Right" Width="150" Height="50" VerticalAlignment="Bottom" Click="NewMeasurement2Button_Click"/>
+        <Button Name="NewMeasurement2Button" Content="Ny måling" Visibility="Hidden" FontSize="30" Grid.Column="1" Margin="0,0,50,15" HorizontalAlignment="Right" Width="150" Height="50" VerticalAlignment="Bottom" Click="NewMeasurement2Button_Click"/>
         <Button Name="TransferButton" Content="Resultat" Visibility="Hidden" FontSize="30" Grid.Column="1" Margin="0,0,210,15" HorizontalAlignment="Right" Width="150" Height="50" VerticalAlignment="Bottom" Click="TransferButton_Click"/>
-        <Button Name="SupportButton" Content="Hjælp" FontSize="30" HorizontalAlignment="Left" Margin="50,0,0,15" Width="150" Height="50" VerticalAlignment="Bottom" Grid.Column="0"/>
+        <Button Name="SupportButton" Content="Hjælp" FontSize="30" HorizontalAlignment="Left" Margin="50,0,0,15" Width="150" Height="50" VerticalAlignment="Bottom" Grid.Column="0" Click="SupportButton_Click"/>
     </Grid>
 </Window>
