@@ -65,6 +65,7 @@ namespace BpNFCApp
 
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
+            Back2Button.Visibility = Visibility.Hidden;
             NewMeasurementButton.Visibility = Visibility.Visible;
             NewMeasurementButton.IsEnabled = false;
 
