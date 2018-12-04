@@ -179,14 +179,13 @@ namespace BpNFCApp
                     severity = "RED";
                     Dispatcher.BeginInvoke(new Action(() =>
                     {
-                        //OkCheck.Visibility = Visibility.Visible;
+                        OkCheck.Visibility = Visibility.Visible;
                         MessageLabel.Content =
-                            "Du skal gå informationsskranken og hente en blodtrykmåler du tager med hjem.\n \nDu får en indkaldelse til nyt check af dit blodtryk i den E-boks. ";
-                        LogoutButton.IsEnabled = true;
-                        //if (OkCheckBox.IsChecked == true)
-                        //{
-                            
-                        //}
+                            "Blodtryksmålingen er nu færdig.\n\nDu skal nu gå til informationsskranken og hente en blodtrykmåler du tager med dig hjem.\n \nDu får en indkaldelse til nyt check af dit blodtryk direkte i din E-boks. ";
+                        if (OkCheckBox.IsChecked == true)
+                        {
+                            LogoutButton.IsEnabled = true;
+                        }
                     }));
 
                 }
@@ -198,13 +197,9 @@ namespace BpNFCApp
                     Dispatcher.BeginInvoke(new Action(() =>
                     {
                         MessageLabel.Visibility = Visibility.Visible;
-                        MessageLabel.Content = "Du modtager en indkaldelse til et nyt checkup i din E-boks";
+                        MessageLabel.Content = "Blodtryksmålingen er nu færdig. \n\nDu modtager en indkaldelse til et nyt checkup i din E-boks";
                         OkCheck.Visibility = Visibility.Visible;
-                        if (OkCheckBox.IsChecked == true)
-                        {
-                            MessageLabel.Content = "Du kan nu logge af systemet";
-                            LogoutButton.IsEnabled = true;
-                        }
+                        
                     }));
 
                 }
@@ -216,13 +211,8 @@ namespace BpNFCApp
 
                         Dispatcher.BeginInvoke(new Action(() =>
                         {
-                            MessageLabel.Content = "Du modtager en indkaldelse til et nyt checkup i din E-boks";
+                            MessageLabel.Content = "Blodtryksmålingen er nu færdig. \n\nDu modtager en indkaldelse til et nyt checkup i din E-boks";
                             OkCheck.Visibility = Visibility.Visible;
-                            if (OkCheckBox.IsChecked == true)
-                            {
-                                MessageLabel.Content = "Du kan nu logge af systemet";
-                                LogoutButton.IsEnabled = true;
-                            }
                         }));
 
                     }
@@ -235,11 +225,7 @@ namespace BpNFCApp
                         {
                             OkCheck.Visibility = Visibility.Visible;
                             MessageLabel.Content =
-                                "Du skal gå informationsskranken og hente en blodtrykmåler du tager med hjem.\n \nDu får en indkaldelse til nyt check af dit blodtryk i den E-boks. ";
-                            if (OkCheckBox.IsChecked == true)
-                            {
-                                LogoutButton.IsEnabled = true;
-                            }
+                                "Blodtryksmålingen er nu færdig. \n\nDu skal nu gå til informationsskranken og hente en blodtrykmåler \ndu tager med hjem.\n \nDu får en indkaldelse til nyt check af dit blodtryk direkte i din E-boks. ";
                         }));
 
                     }
@@ -279,6 +265,12 @@ namespace BpNFCApp
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Test();
+        }
+
+        private void OkCheckBox_OnChecked(object sender, RoutedEventArgs e)
+        {
+            LogoutButton.IsEnabled = true;
+            MessageLabel.Content = "Du kan nu logge af systemet. \n\nTak for i dag.";
         }
     }
 }
