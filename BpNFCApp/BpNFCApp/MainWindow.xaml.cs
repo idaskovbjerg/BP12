@@ -63,7 +63,7 @@ namespace BpNFCApp
 
             InitializeComponent();
 
-            ResultLabel.Content = "Hold overførelsesstaven henover logoet, som er vist herunder, \npå blodtryksmåleren.\n\n\n \n \nSe billedet";
+            ResultLabel.Content = "Hold NFC-pinden henover logoet, som er vist herunder, \npå blodtryksmåleren i et par sekunder.\n\nDen kan IKKE vende forkert.\n\n\n \n \nSe billedet";
             ResultImage.Source = new BitmapImage(new Uri("Images/position6.jpg", UriKind.Relative));
 
             ProcessStartInfo start = new ProcessStartInfo();
@@ -118,9 +118,9 @@ namespace BpNFCApp
                 {
                     var dia = MeasurementService.ReadFile(e.FullPath)[i].Diastolic;
                     var sys = MeasurementService.ReadFile(e.FullPath)[i].Systolic;
-                    puls = Math.Round((MeasurementService.ReadFile(e.FullPath)[0].Pulse +
-                            MeasurementService.ReadFile(e.FullPath)[1].Pulse +
-                            MeasurementService.ReadFile(e.FullPath)[2].Pulse) / 3.0);
+                    puls = Math.Round((MeasurementService.ReadFile(e.FullPath)[i].Pulse +
+                            MeasurementService.ReadFile(e.FullPath)[i+1].Pulse +
+                            MeasurementService.ReadFile(e.FullPath)[i+2].Pulse) / 3.0);
 
                     for (int j = 0; j <= 6; j++)
                     {
@@ -197,9 +197,9 @@ namespace BpNFCApp
                     Dispatcher.BeginInvoke(new Action(() =>
                     {
                         MessageLabel.Visibility = Visibility.Visible;
-                        MessageLabel.Content = "Blodtryksmålingen er nu færdig. \n\nDu modtager en indkaldelse til et nyt checkup i din E-boks";
-                        OkCheck.Visibility = Visibility.Visible;
-                        
+                        MessageLabel.Content = "Blodtrykmålingen er nu færdig. \n\nDu kan nu logge af systemet. \n\nTak for idag og hav en god dag. ";
+                        //OkCheck.Visibility = Visibility.Visible;
+                        LogoutButton.IsEnabled = true;
                     }));
 
                 }
@@ -211,8 +211,10 @@ namespace BpNFCApp
 
                         Dispatcher.BeginInvoke(new Action(() =>
                         {
-                            MessageLabel.Content = "Blodtryksmålingen er nu færdig. \n\nDu modtager en indkaldelse til et nyt checkup i din E-boks";
-                            OkCheck.Visibility = Visibility.Visible;
+                            MessageLabel.Visibility = Visibility.Visible;
+                            MessageLabel.Content = "Blodtrykmålingen er nu færdig. \n\nDu kan nu logge af systemet. \n\nTak for idag og hav en god dag.";
+                            LogoutButton.IsEnabled = true;
+                            //OkCheck.Visibility = Visibility.Visible;
                         }));
 
                     }
@@ -235,7 +237,7 @@ namespace BpNFCApp
                         Dispatcher.BeginInvoke(new Action(() =>
                         {
                             MessageLabel.Visibility = Visibility.Visible;
-                            MessageLabel.Content = "Du kan nu logge af systemet. \n\nHav en god dag.";
+                            MessageLabel.Content = "Blodtrykmålingen er nu færdig. \n\nDu kan nu logge af systemet. \n\nTak for idag og hav en god dag.";
                             LogoutButton.IsEnabled = true;
                         }));
                     }
@@ -252,14 +254,21 @@ namespace BpNFCApp
 
         private void LogoutButton_Click(object sender, RoutedEventArgs e)
         {
+
+            
+
             var openTeleFacade = new OpenTeleNetWrapperFacade("http://opentele.aliviate.dk:4288/opentele-citizen-server/");
             openTeleFacade.postQuestionnaireBloodPressureMeasurement(Math.Round(sysAverage).ToString(),
                 Math.Round(diaAverage).ToString(), Math.Round(puls).ToString(), severity,
                 UserName, PassWord);
-            this.Close();
-            
             Login login = new Login();
             login.Show();
+            for (int intCounter = App.Current.Windows.Count - 2; intCounter >= 0; intCounter--)
+            {
+                App.Current.Windows[intCounter].Close();
+
+            }
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -271,6 +280,13 @@ namespace BpNFCApp
         {
             LogoutButton.IsEnabled = true;
             MessageLabel.Content = "Du kan nu logge af systemet. \n\nTak for i dag.";
+        }
+
+        private void SupportButton_Click(object sender, RoutedEventArgs e)
+        {
+            PopupWindow pop = new PopupWindow();
+            pop.Show();
+
         }
     }
 }

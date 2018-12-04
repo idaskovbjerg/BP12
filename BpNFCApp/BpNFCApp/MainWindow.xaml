@@ -8,7 +8,7 @@
 
         <Button Name="LogoutButton" Content="Gem, log ud og afslut" IsEnabled="False" FontSize="30" Margin="0,0,50,15" HorizontalAlignment="Right" Width="300" Click="LogoutButton_Click" Height="50" VerticalAlignment="Bottom"/>
 
-        <Button Name="SupportButton" Content="Hjælp" FontSize="30" HorizontalAlignment="Left" Margin="50,0,0,15" Width="150" Height="50" VerticalAlignment="Bottom" />
+        <Button Name="SupportButton" Content="Hjælp" FontSize="30" HorizontalAlignment="Left" Margin="50,0,0,15" Width="150" Height="50" VerticalAlignment="Bottom" Click="SupportButton_Click" />
         <Label Content="Resultat af blodtryksmålingen" FontSize="30" HorizontalAlignment="Left" Margin="50,50,0,0" VerticalAlignment="Top"/>
         <Label Name="BloodPressureLabel" HorizontalAlignment="Left" Content="" FontSize="25" Margin="50,148,0,0" VerticalAlignment="Top"/>
         <Label Content="" Name="ResultLabel" FontSize="25" HorizontalAlignment="Left" Margin="50,105,0,0" VerticalAlignment="Top"/>
@@ -23,6 +23,6 @@
             </Viewbox>
         </StackPanel>
         <Button Content="Button" HorizontalAlignment="Left" Visibility="Hidden" Margin="305,293,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <Image HorizontalAlignment="Left" Name="NFClogoImage" Source="Images/NFClogo.PNG" Height="90" Margin="60,198,0,0" VerticalAlignment="Top" Width="90"/>
+        <Image HorizontalAlignment="Left" Name="NFClogoImage" Source="Images/NFClogo.PNG" Height="90" Margin="56,264,0,0" VerticalAlignment="Top" Width="90"/>
     </Grid>
 </Window>

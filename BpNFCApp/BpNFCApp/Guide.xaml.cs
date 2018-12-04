@@ -28,26 +28,63 @@ namespace BpNFCApp
         private TimeSpan _time;
         private TimeSpan timeSpan;
         private DispatcherTimer dispatcherTimer;
-        private double minut = 1;
-        private int sek = 35;
+        private double minut = 0.1;
+        private int sek = 4;
         public Guide()
         {
             InitializeComponent();
 
             TimerTextBlock.Visibility = Visibility.Hidden;
             GuideImage.Source = new BitmapImage(new Uri("Images/position1.jpg", UriKind.Relative));
-            GuideLabel.Content = "Velkommen.\n\nDu skal nu udføre 3 blodtryksmålinger \npå dig selv.\n\nNår alle blodtryksmålinger er udført, \nbliver du guided til at overføre data \ntil systemet.";
+            GuideLabel.Content = "Velkommen.\n\nDu skal nu udføre 3 blodtryksmålinger \npå dig selv.\n\nNår alle blodtryksmålinger er udført, \nbliver du guided til at overføre data \ntil systemet.\n\nHele undersøgelsen tager omtrendt \n20 minutter.";
 
+        }
+        private void Back0Button_Click(object sender, RoutedEventArgs e)
+        {
+            GuideImage.Source = new BitmapImage(new Uri("Images/position1.jpg", UriKind.Relative));
+            GuideLabel.Content = "Velkommen.\n\nDu skal nu udføre 3 blodtryksmålinger \npå dig selv.\n\nNår alle blodtryksmålinger er udført, \nbliver du guided til at overføre data \ntil systemet.\n\nHele undersøgelsen tager omtrendt \n20 minutter";
+            Back0Button.Visibility = Visibility.Hidden;
+            Done0Button.Visibility = Visibility.Visible;
+            Done1Button.Visibility = Visibility.Hidden;
+        }
+        private void Done0Button_Click(object sender, RoutedEventArgs e)
+        {
+            Back0Button.Visibility = Visibility.Visible;
+            Done0Button.Visibility = Visibility.Hidden;
+            Done1Button.Visibility = Visibility.Visible;
+            GuideImage.Source = new BitmapImage(new Uri("Images/position1.jpg", UriKind.Relative));
+            GuideLabel.Content = "Sæt dig i en behagelig position. \n \nPlacer begge fødder på jorden. \n \nDine ben må ikke være krydsede. ";
+        }
+
+        private void Back1Button_Click(object sender, RoutedEventArgs e)
+        {
+            GuideImage.Source = new BitmapImage(new Uri("Images/position1.jpg", UriKind.Relative));
+            GuideLabel.Content = "Sæt dig i en behagelig position. \n \nPlacer begge fødder på jorden. \n \nDine ben må ikke være krydsede. ";
+
+            Done1Button.Visibility = Visibility.Visible;
+            Done2Button.Visibility = Visibility.Hidden;
+            Back0Button.Visibility = Visibility.Visible;
+            Back1Button.Visibility = Visibility.Hidden;
         }
 
         private void Done1Button_Click(object sender, RoutedEventArgs e)
         {
             GuideImage.Source = new BitmapImage(new Uri("Images/position2.jpg", UriKind.Relative));
-            GuideLabel.Content = "Sæt mancetten på højre arm:\n \n    1. Fjern tøj fra overarmen.\n \n    2. Slangen skal være langs \n        armen.\n \n    3. Stram ikke mancetten for meget: \n        der skal kunne være to fingre \n        under mancetten.";
+            GuideLabel.Content = "Sæt mancetten på højre arm:\n \n    1. Fjern tøj fra overarmen.\n \n    2. Sæt mancetten på overarmen.\n \n    3. Slangen skal være langs \n        armen.\n \n    4. Stram ikke mancetten for meget: \n        der skal kunne være to fingre \n        under mancetten.";
             Done1Button.Visibility = Visibility.Hidden;
             Done2Button.Visibility = Visibility.Visible;
             Back0Button.Visibility = Visibility.Hidden;
             Back1Button.Visibility = Visibility.Visible;
+        }
+
+        private void Back2Button_Click(object sender, RoutedEventArgs e)
+        {
+            GuideImage.Source = new BitmapImage(new Uri("Images/position2.jpg", UriKind.Relative));
+            GuideLabel.Content = "Sæt mancetten på højre arm:\n \n    1. Fjern tøj fra overarmen.\n \n    2. Sæt mancetten på overarmen.\n \n    3. Slangen skal være langs \n        armen.\n \n    4. Stram ikke mancetten for meget: \n        der skal kunne være to fingre \n        under mancetten.";
+            Done2Button.Visibility = Visibility.Visible;
+            StartButton.Visibility = Visibility.Hidden;
+            Back1Button.Visibility = Visibility.Visible;
+            Back2Button.Visibility = Visibility.Hidden;
         }
 
         private void Done2Button_Click(object sender, RoutedEventArgs e)
@@ -59,10 +96,9 @@ namespace BpNFCApp
             Back1Button.Visibility = Visibility.Hidden;
             Back2Button.Visibility = Visibility.Visible;
         }
-
+        
         private int count = 0;
         
-
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
             Back2Button.Visibility = Visibility.Hidden;
@@ -74,7 +110,7 @@ namespace BpNFCApp
 
             TimerTextBlock.Visibility = Visibility.Visible;
 
-            _time = TimeSpan.FromMinutes(1); // 5 minutes
+            _time = TimeSpan.FromMinutes(0.1); // 5 minutes
 
             timeSpan = TimeSpan.FromSeconds(sek); // ca. 40 sek
 
@@ -88,7 +124,7 @@ namespace BpNFCApp
                     TimerTextBlock.Foreground = new SolidColorBrush(Colors.Green);
                     GuideLabel.Foreground = new SolidColorBrush(Colors.Green);
                     
-                    GuideLabel.Content = "Tryk på Start knappen på \nblodtryksmåleren.\n \nManchetten pustes nu op \nog måler blodtrykket.";
+                    GuideLabel.Content = "Blodtryksmåling nr. " + count + " af 3.\n\n" +"Tryk på Start knappen på \nblodtryksmåleren.\n \nManchetten pustes nu op \nog måler blodtrykket.";
 
                     dispatcherTimer =
                         new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
@@ -160,7 +196,7 @@ namespace BpNFCApp
                     GuideLabel.Foreground = new SolidColorBrush(Colors.Green);
                     NewMeasurement2Button.Visibility = Visibility.Visible;
 
-                    GuideLabel.Content = "Tryk på Start knappen på \nblodtryksmåleren.\n \nManchetten pustes nu op \nog måler blodtrykket.";
+                    GuideLabel.Content = "Blodtryksmåling nr. " + count + " af 3.\n\n" + "Tryk på Start knappen på \nblodtryksmåleren.\n \nManchetten pustes nu op \nog måler blodtrykket.";
 
                     dispatcherTimer =
                         new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
@@ -178,7 +214,7 @@ namespace BpNFCApp
                                 dispatcherTimer.Stop();
                                 TransferButton.Visibility = Visibility.Visible;
                                 GuideImage.Source = new BitmapImage(new Uri("Images/position5.jpg", UriKind.Relative));
-                                GuideLabel.Content = "Du har nu udført \n"+count+" blodtryksmålinger.\n \nTryk på Resultat knappen.";
+                                GuideLabel.Content = "Du har nu udført de \n"+count+" blodtryksmålinger.\n \nTryk på Resultat knappen.";
                                 NewMeasurement2Button.IsEnabled = false;
                                 TransferButton.IsEnabled = true;
                             }
@@ -220,7 +256,7 @@ namespace BpNFCApp
                     GuideLabel.Foreground = new SolidColorBrush(Colors.Green);
                     NewMeasurement2Button.Visibility = Visibility.Visible;
 
-                    GuideLabel.Content = "Tryk på Start knappen på \nblodtryksmåleren.\n \nManchetten pustes nu op \nog måler blodtrykket.";
+                    GuideLabel.Content = "Blodtryksmåling nr. " + count + " af 3.\n\n"+"Tryk på Start knappen på \nblodtryksmåleren.\n \nManchetten pustes nu op \nog måler blodtrykket.";
 
                     dispatcherTimer =
                         new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
@@ -256,43 +292,6 @@ namespace BpNFCApp
             popup.Show();
         }
 
-        private void Done0Button_Click(object sender, RoutedEventArgs e)
-        {
-            Back0Button.Visibility = Visibility.Visible;
-            Done0Button.Visibility = Visibility.Hidden;
-            Done1Button.Visibility = Visibility.Visible;
-            GuideImage.Source = new BitmapImage(new Uri("Images/position1.jpg", UriKind.Relative));
-            GuideLabel.Content = "Sæt dig i en behagelig position. \n \nPlacer begge fødder på jorden. \n \nDine ben må ikke være krydsede. ";
-        }
-
-        private void Back0Button_Click(object sender, RoutedEventArgs e)
-        {
-            GuideImage.Source = new BitmapImage(new Uri("Images/position1.jpg", UriKind.Relative));
-            GuideLabel.Content = "Velkommen.\n\nDu skal nu udføre 3 blodtryksmålinger \npå dig selv.\n\nNår alle blodtryksmålinger er udført, \nbliver du guided til at overføre data \ntil systemet.";
-            Back0Button.Visibility = Visibility.Hidden;
-            Done0Button.Visibility = Visibility.Visible;
-            Done1Button.Visibility = Visibility.Hidden;
-        }
-
-        private void Back1Button_Click(object sender, RoutedEventArgs e)
-        {
-            GuideImage.Source = new BitmapImage(new Uri("Images/position1.jpg", UriKind.Relative));
-            GuideLabel.Content = "Sæt dig i en behagelig position. \n \nPlacer begge fødder på jorden. \n \nDine ben må ikke være krydsede. ";
-
-            Done1Button.Visibility = Visibility.Visible;
-            Done2Button.Visibility = Visibility.Hidden;
-            Back0Button.Visibility = Visibility.Visible;
-            Back1Button.Visibility = Visibility.Hidden;
-        }
-
-        private void Back2Button_Click(object sender, RoutedEventArgs e)
-        {
-            GuideImage.Source = new BitmapImage(new Uri("Images/position2.jpg", UriKind.Relative));
-            GuideLabel.Content = "Sæt mancetten på højre arm:\n \n    1. Fjern tøj fra overarmen.\n \n    2. Slangen skal være langs \n        armen.\n \n    3. Stram ikke mancetten for meget: \n        der skal kunne være to fingre \n        under mancetten.";
-            Done2Button.Visibility = Visibility.Visible;
-            StartButton.Visibility = Visibility.Hidden;
-            Back1Button.Visibility = Visibility.Visible;
-            Back2Button.Visibility = Visibility.Hidden;
-        }
+        
     }
 }
