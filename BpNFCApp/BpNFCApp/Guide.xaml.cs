@@ -35,17 +35,19 @@ namespace BpNFCApp
             InitializeComponent();
 
             TimerTextBlock.Visibility = Visibility.Hidden;
-
             GuideImage.Source = new BitmapImage(new Uri("Images/position1.jpg", UriKind.Relative));
-            GuideLabel.Content = "Sæt dig i en behagelig position. \n \nPlacer begge fødder på jorden. \n \nDine ben må ikke være krydsede. ";
+            GuideLabel.Content = "Velkommen.\n\nDu skal nu udføre 3 blodtryksmålinger \npå dig selv.\n\nNår alle blodtryksmålinger er udført, \nbliver du guided til at overføre data \ntil systemet.";
+
         }
 
         private void Done1Button_Click(object sender, RoutedEventArgs e)
         {
             GuideImage.Source = new BitmapImage(new Uri("Images/position2.jpg", UriKind.Relative));
-            GuideLabel.Content = "Sæt mancetten på højre arm:\n \n    1. Fjern tøj fra overarmen.\n \n    2. Slangen skal være langs \n        armen og pege væk fra \n        kroppen. \n \n    3. Stram ikke mancetten for meget: \n        der skal kunne være to fingre \n        under mancetten.";
+            GuideLabel.Content = "Sæt mancetten på højre arm:\n \n    1. Fjern tøj fra overarmen.\n \n    2. Slangen skal være langs \n        armen.\n \n    3. Stram ikke mancetten for meget: \n        der skal kunne være to fingre \n        under mancetten.";
             Done1Button.Visibility = Visibility.Hidden;
             Done2Button.Visibility = Visibility.Visible;
+            Back0Button.Visibility = Visibility.Hidden;
+            Back1Button.Visibility = Visibility.Visible;
         }
 
         private void Done2Button_Click(object sender, RoutedEventArgs e)
@@ -54,6 +56,8 @@ namespace BpNFCApp
             GuideLabel.Content = "Tjek at mancetten sidder som på \nbilledet. \nDu er nu klar til at påbegynde\nundersøgelsen.\n \nTryk på Klar";
             Done2Button.Visibility = Visibility.Hidden;
             StartButton.Visibility = Visibility.Visible;
+            Back1Button.Visibility = Visibility.Hidden;
+            Back2Button.Visibility = Visibility.Visible;
         }
 
         private int count = 0;
@@ -249,6 +253,45 @@ namespace BpNFCApp
         {
             PopupWindow popup = new PopupWindow();
             popup.Show();
+        }
+
+        private void Done0Button_Click(object sender, RoutedEventArgs e)
+        {
+            Back0Button.Visibility = Visibility.Visible;
+            Done0Button.Visibility = Visibility.Hidden;
+            Done1Button.Visibility = Visibility.Visible;
+            GuideImage.Source = new BitmapImage(new Uri("Images/position1.jpg", UriKind.Relative));
+            GuideLabel.Content = "Sæt dig i en behagelig position. \n \nPlacer begge fødder på jorden. \n \nDine ben må ikke være krydsede. ";
+        }
+
+        private void Back0Button_Click(object sender, RoutedEventArgs e)
+        {
+            GuideImage.Source = new BitmapImage(new Uri("Images/position1.jpg", UriKind.Relative));
+            GuideLabel.Content = "Velkommen.\n\nDu skal nu udføre 3 blodtryksmålinger \npå dig selv.\n\nNår alle blodtryksmålinger er udført, \nbliver du guided til at overføre data \ntil systemet.";
+            Back0Button.Visibility = Visibility.Hidden;
+            Done0Button.Visibility = Visibility.Visible;
+            Done1Button.Visibility = Visibility.Hidden;
+        }
+
+        private void Back1Button_Click(object sender, RoutedEventArgs e)
+        {
+            GuideImage.Source = new BitmapImage(new Uri("Images/position1.jpg", UriKind.Relative));
+            GuideLabel.Content = "Sæt dig i en behagelig position. \n \nPlacer begge fødder på jorden. \n \nDine ben må ikke være krydsede. ";
+
+            Done1Button.Visibility = Visibility.Visible;
+            Done2Button.Visibility = Visibility.Hidden;
+            Back0Button.Visibility = Visibility.Visible;
+            Back1Button.Visibility = Visibility.Hidden;
+        }
+
+        private void Back2Button_Click(object sender, RoutedEventArgs e)
+        {
+            GuideImage.Source = new BitmapImage(new Uri("Images/position2.jpg", UriKind.Relative));
+            GuideLabel.Content = "Sæt mancetten på højre arm:\n \n    1. Fjern tøj fra overarmen.\n \n    2. Slangen skal være langs \n        armen.\n \n    3. Stram ikke mancetten for meget: \n        der skal kunne være to fingre \n        under mancetten.";
+            Done2Button.Visibility = Visibility.Visible;
+            StartButton.Visibility = Visibility.Hidden;
+            Back1Button.Visibility = Visibility.Visible;
+            Back2Button.Visibility = Visibility.Hidden;
         }
     }
 }
