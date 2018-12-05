@@ -63,7 +63,7 @@ namespace BpNFCApp
 
             InitializeComponent();
 
-            ResultLabel.Content = "Hold NFC-pinden henover logoet, som er vist herunder, \npå blodtryksmåleren i et par sekunder.\n\nDen kan IKKE vende forkert.\n\n\n \n \nSe billedet";
+            ResultLabel.Content = "Læg NFC-pinden ovenpå logoet, som er vist herunder, \npå blodtryksmåleren i et par sekunder.\n\nDen kan IKKE vende forkert.\n\n\n \n \nSe billedet";
             ResultImage.Source = new BitmapImage(new Uri("Images/position6.jpg", UriKind.Relative));
 
             ProcessStartInfo start = new ProcessStartInfo();
@@ -93,6 +93,7 @@ namespace BpNFCApp
         private string severity = "";
         private void FileCreated(object sender, FileSystemEventArgs e)
         {
+
             Dispatcher.BeginInvoke(new Action(() => { NFClogoImage.Visibility = Visibility.Hidden; }));
 
             Thread.Sleep(500);
@@ -100,147 +101,166 @@ namespace BpNFCApp
             var counter = 0;
             if (file.Name.Contains("bpmonitor"))
             {
-                foreach (var VARIABLE in MeasurementService.ReadFile(e.FullPath))
+                try
                 {
-                    counter++;
-                    if(DateTime.Today.Year == VARIABLE.Year)
-                    {
-                        if (DateTime.Today.Month == VARIABLE.Month)
-                        {
-                            if (DateTime.Today.Day == VARIABLE.Day)
-                            { 
-                                break;
-                            }
-                        }
-                    }
-                }
-                for (int i = counter-1; i < counter; i++)
-                {
-                    var dia = MeasurementService.ReadFile(e.FullPath)[i].Diastolic;
-                    var sys = MeasurementService.ReadFile(e.FullPath)[i].Systolic;
-                    puls = Math.Round((MeasurementService.ReadFile(e.FullPath)[i].Pulse +
-                            MeasurementService.ReadFile(e.FullPath)[i+1].Pulse +
-                            MeasurementService.ReadFile(e.FullPath)[i+2].Pulse) / 3.0);
 
-                    for (int j = 0; j <= 6; j++)
+                    foreach (var VARIABLE in MeasurementService.ReadFile(e.FullPath))
                     {
-                        var dia1 = MeasurementService.ReadFile(e.FullPath)[i + 1].Diastolic;
-                        var dia2 = MeasurementService.ReadFile(e.FullPath)[i + 2].Diastolic;
-                        if (dia + j == dia1 || dia - j == dia1)
+                        counter++;
+                        if (DateTime.Today.Year == VARIABLE.Year)
                         {
-                            for (int k = 0; k <= 6; k++)
+                            if (DateTime.Today.Month == VARIABLE.Month)
                             {
-                                if (dia + k == dia2 || dia - k == dia2)
+                                if (DateTime.Today.Day == VARIABLE.Day)
                                 {
-                                    diaAverage = (dia + dia1 + dia2) / 3.0;
                                     break;
                                 }
                             }
                         }
                     }
 
-                    for (int k = 0; k <= 10; k++)
+                    for (int i = counter - 1; i < counter; i++)
                     {
-                        var sys1 = MeasurementService.ReadFile(e.FullPath)[i + 1].Systolic;
-                        var sys2 = MeasurementService.ReadFile(e.FullPath)[i + 2].Systolic;
-                        if (sys + k == sys1 || sys - k == sys1)
+                        var dia = MeasurementService.ReadFile(e.FullPath)[i].Diastolic;
+                        var sys = MeasurementService.ReadFile(e.FullPath)[i].Systolic;
+                        puls = Math.Round((MeasurementService.ReadFile(e.FullPath)[i].Pulse +
+                                           MeasurementService.ReadFile(e.FullPath)[i + 1].Pulse +
+                                           MeasurementService.ReadFile(e.FullPath)[i + 2].Pulse) / 3.0);
+
+                        for (int j = 0; j <= 6; j++)
                         {
-                            for (int j = 0; j <= 10; j++)
+                            var dia1 = MeasurementService.ReadFile(e.FullPath)[i + 1].Diastolic;
+                            var dia2 = MeasurementService.ReadFile(e.FullPath)[i + 2].Diastolic;
+                            if (dia + j == dia1 || dia - j == dia1)
                             {
-                                if (sys + j == sys2 || sys - j == sys2)
+                                for (int k = 0; k <= 6; k++)
                                 {
-                                    sysAverage = (sys + sys1 + sys2)/3.0;
-                                    break;
+                                    if (dia + k == dia2 || dia - k == dia2)
+                                    {
+                                        diaAverage = (dia + dia1 + dia2) / 3.0;
+                                        break;
+                                    }
                                 }
                             }
                         }
-                        //else
-                        //{
-                        //    Dispatcher.BeginInvoke(new Action(() =>
-                        //    {
-                        //        this.Close();
-                        //    }));
-                        //}
+
+                        for (int k = 0; k <= 10; k++)
+                        {
+                            var sys1 = MeasurementService.ReadFile(e.FullPath)[i + 1].Systolic;
+                            var sys2 = MeasurementService.ReadFile(e.FullPath)[i + 2].Systolic;
+                            if (sys + k == sys1 || sys - k == sys1)
+                            {
+                                for (int j = 0; j <= 10; j++)
+                                {
+                                    if (sys + j == sys2 || sys - j == sys2)
+                                    {
+                                        sysAverage = (sys + sys1 + sys2) / 3.0;
+                                        break;
+                                    }
+                                }
+                            }
+
+                            //else
+                            //{
+                            //    Dispatcher.BeginInvoke(new Action(() =>
+                            //    {
+                            //        this.Close();
+                            //    }));
+                            //}
+                        }
+
+                        if (sysAverage == 0 || diaAverage == 0)
+                        {
+                            Dispatcher.BeginInvoke(new Action(() => { this.Close(); }));
+                        }
                     }
 
-                    if (sysAverage == 0 || diaAverage == 0)
-                    {
-                        Dispatcher.BeginInvoke(new Action(() => { this.Close(); }));
-                    }
-                }
-                Dispatcher.BeginInvoke(new Action(() =>
+                    Dispatcher.BeginInvoke(new Action(() =>
                     {
                         ResultLabel.Content = "Dit målte blodtryk:";
                         BloodPressureLabel.Content =
                             Math.Round(sysAverage) + "/" + Math.Round(diaAverage) + " mmHg";
                     }));
-                if (sysAverage >= 140)
-                {
-                    severity = "RED";
-                    Dispatcher.BeginInvoke(new Action(() =>
+                    if (sysAverage >= 140)
                     {
-                        OkCheck.Visibility = Visibility.Visible;
-                        MessageLabel.Content =
-                            "Blodtryksmålingen er nu færdig.\n\nDu skal nu gå til informationsskranken og hente en blodtrykmåler du tager med dig hjem.\n \nDu får en indkaldelse til nyt check af dit blodtryk direkte i din E-boks. ";
-                        if (OkCheckBox.IsChecked == true)
+                        severity = "RED";
+                        Dispatcher.BeginInvoke(new Action(() =>
                         {
-                            LogoutButton.IsEnabled = true;
-                        }
-                    }));
+                            OkCheck.Visibility = Visibility.Visible;
+                            MessageLabel.Content =
+                                "Blodtryksmålingen er nu færdig.\n\nDu kan nu tage manchetten af og lægge denne \npå bordet\n\nDu skal nu gå til informationsskranken og hente en blodtrykmåler du tager med dig hjem.\n \nDu får en indkaldelse til nyt check af dit blodtryk direkte i din E-boks. ";
+                            if (OkCheckBox.IsChecked == true)
+                            {
+                                LogoutButton.IsEnabled = true;
+                            }
+                        }));
 
-                }
+                    }
 
-                if (sysAverage < 140 && sysAverage > 120)
-                {
-                    severity = "YELLOW";
-
-                    Dispatcher.BeginInvoke(new Action(() =>
-                    {
-                        MessageLabel.Visibility = Visibility.Visible;
-                        MessageLabel.Content = "Blodtrykmålingen er nu færdig. \n\nDu kan nu logge af systemet. \n\nTak for idag og hav en god dag. ";
-                        //OkCheck.Visibility = Visibility.Visible;
-                        LogoutButton.IsEnabled = true;
-                    }));
-
-                }
-                else
-                {
-                    if (diaAverage > 90 && diaAverage <= 100)
+                    if (sysAverage < 140 && sysAverage > 120)
                     {
                         severity = "YELLOW";
 
                         Dispatcher.BeginInvoke(new Action(() =>
                         {
+                            BloodPressureLabel.Foreground = new SolidColorBrush(Colors.Green);
+
                             MessageLabel.Visibility = Visibility.Visible;
-                            MessageLabel.Content = "Blodtrykmålingen er nu færdig. \n\nDu kan nu logge af systemet. \n\nTak for idag og hav en god dag.";
-                            LogoutButton.IsEnabled = true;
-                            //OkCheck.Visibility = Visibility.Visible;
-                        }));
-
-                    }
-
-                    if (diaAverage > 100)
-                    {
-                        severity = "RED";
-                        
-                        Dispatcher.BeginInvoke(new Action(() =>
-                        {
-                            OkCheck.Visibility = Visibility.Visible;
                             MessageLabel.Content =
-                                "Blodtryksmålingen er nu færdig. \n\nDu skal nu gå til informationsskranken og hente en blodtrykmåler \ndu tager med hjem.\n \nDu får en indkaldelse til nyt check af dit blodtryk direkte i din E-boks. ";
+                                "Blodtrykmålingen er nu færdig og blodtrykket er normalt.\n\nDu kan nu tage manchetten af, lægge denne \npå bordet og logge af systemet. \n\nTak for idag og hav en god dag. ";
+                            //OkCheck.Visibility = Visibility.Visible;
+                            LogoutButton.IsEnabled = true;
                         }));
 
                     }
                     else
                     {
-                        severity = "GREEN";
-                        Dispatcher.BeginInvoke(new Action(() =>
+                        if (diaAverage > 90 && diaAverage <= 100)
                         {
-                            MessageLabel.Visibility = Visibility.Visible;
-                            MessageLabel.Content = "Blodtrykmålingen er nu færdig. \n\nDu kan nu logge af systemet. \n\nTak for idag og hav en god dag.";
-                            LogoutButton.IsEnabled = true;
-                        }));
+                            severity = "YELLOW";
+
+                            Dispatcher.BeginInvoke(new Action(() =>
+                            {
+                                BloodPressureLabel.Foreground = new SolidColorBrush(Colors.Green);
+
+                                MessageLabel.Visibility = Visibility.Visible;
+                                MessageLabel.Content =
+                                    "Blodtrykmålingen er nu færdig og blodtrykket er normalt. \n\nDu kan nu tage manchetten af, lægge denne \npå bordet og logge af systemet. \n\nTak for idag og hav en god dag.";
+                                LogoutButton.IsEnabled = true;
+                                //OkCheck.Visibility = Visibility.Visible;
+                            }));
+
+                        }
+
+                        if (diaAverage > 100)
+                        {
+                            severity = "RED";
+
+                            Dispatcher.BeginInvoke(new Action(() =>
+                            {
+                                OkCheck.Visibility = Visibility.Visible;
+                                MessageLabel.Content =
+                                    "Blodtryksmålingen er nu færdig. \n\nDu kan nu tage manchetten af og lægge denne på bordet.\n\nDu skal nu gå til informationsskranken og hente en blodtrykmåler \ndu tager med hjem.\n \nDu får en indkaldelse til nyt check af dit blodtryk direkte i din E-boks. ";
+                            }));
+
+                        }
+                        else
+                        {
+                            severity = "GREEN";
+                            Dispatcher.BeginInvoke(new Action(() =>
+                            {
+                                BloodPressureLabel.Foreground = new SolidColorBrush(Colors.Green);
+                                MessageLabel.Visibility = Visibility.Visible;
+                                MessageLabel.Content =
+                                    "Blodtrykmålingen er nu færdig og blodtrykket er normalt. \n\nDu kan nu tage manchetten af, lægge denne \npå bordet og logge af systemet. \n\nTak for idag og hav en god dag.";
+                                LogoutButton.IsEnabled = true;
+                            }));
+                        }
                     }
+                }
+                catch (Exception exception)
+                {
+                    Console.WriteLine(exception);
                 }
             }
             

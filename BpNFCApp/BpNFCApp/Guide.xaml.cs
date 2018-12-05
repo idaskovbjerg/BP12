@@ -28,8 +28,8 @@ namespace BpNFCApp
         private TimeSpan _time;
         private TimeSpan timeSpan;
         private DispatcherTimer dispatcherTimer;
-        private double minut = 0.1;
-        private int sek = 4;
+        private double minut = 1;
+        private int sek = 40;
         public Guide()
         {
             InitializeComponent();
@@ -110,7 +110,7 @@ namespace BpNFCApp
 
             TimerTextBlock.Visibility = Visibility.Visible;
 
-            _time = TimeSpan.FromMinutes(0.1); // 5 minutes
+            _time = TimeSpan.FromMinutes(1); // 5 minutes
 
             timeSpan = TimeSpan.FromSeconds(sek); // ca. 40 sek
 
