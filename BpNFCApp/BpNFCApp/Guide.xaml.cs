@@ -36,13 +36,13 @@ namespace BpNFCApp
 
             TimerTextBlock.Visibility = Visibility.Hidden;
             GuideImage.Source = new BitmapImage(new Uri("Images/position1.jpg", UriKind.Relative));
-            GuideLabel.Content = "Velkommen.\n\nDu skal nu udføre 3 blodtryksmålinger \npå dig selv.\n\nNår alle blodtryksmålinger er udført, \nbliver du guided til at overføre data \ntil systemet.\n\nHele undersøgelsen tager omtrendt \n20 minutter.";
+            GuideLabel.Content = "Velkommen.\n\nDu skal nu udføre 3 blodtryksmålinger \npå dig selv.\n\nNår alle blodtryksmålinger er udført, \nbliver du guided til at overføre data \ntil systemet. Du skal derfor ikke notere \ndata selv. \n\nHele undersøgelsen tager omtrendt \n20 minutter.";
 
         }
         private void Back0Button_Click(object sender, RoutedEventArgs e)
         {
             GuideImage.Source = new BitmapImage(new Uri("Images/position1.jpg", UriKind.Relative));
-            GuideLabel.Content = "Velkommen.\n\nDu skal nu udføre 3 blodtryksmålinger \npå dig selv.\n\nNår alle blodtryksmålinger er udført, \nbliver du guided til at overføre data \ntil systemet.\n\nHele undersøgelsen tager omtrendt \n20 minutter";
+            GuideLabel.Content = "Velkommen.\n\nDu skal nu udføre 3 blodtryksmålinger \npå dig selv.\n\nNår alle blodtryksmålinger er udført, \nbliver du guided til at overføre data \ntil systemet. Du skal derfor ikke notere data selv. \n\nHele undersøgelsen tager omtrendt \n20 minutter";
             Back0Button.Visibility = Visibility.Hidden;
             Done0Button.Visibility = Visibility.Visible;
             Done1Button.Visibility = Visibility.Hidden;
@@ -110,7 +110,7 @@ namespace BpNFCApp
 
             TimerTextBlock.Visibility = Visibility.Visible;
 
-            _time = TimeSpan.FromMinutes(5); // 5 minutes
+            _time = TimeSpan.FromMinutes(1); // 5 minutes
 
             timeSpan = TimeSpan.FromSeconds(sek); // ca. 40 sek
 

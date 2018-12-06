@@ -159,14 +159,7 @@ namespace BpNFCApp
                                     }
                                 }
                             }
-
-                            //else
-                            //{
-                            //    Dispatcher.BeginInvoke(new Action(() =>
-                            //    {
-                            //        this.Close();
-                            //    }));
-                            //}
+                            
                         }
 
                         if (sysAverage == 0 || diaAverage == 0)
